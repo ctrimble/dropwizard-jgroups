@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for jgroups channels",
+  "type": "object",
+  "properties": {
+    "stack": {
+      "type": "array",
+      "items": {
+      "type": "object",
+      "javaType": "com.xiantrimble.dropwizard.jgroups.config.Protocol",
+      "properties": {
+        "protocol": {
+          "type": "string"
+        }
+      }
+    }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+jchannel:
+  stack:
+    - protocol: TCP
+      bind_port: 7801
+      sock_conn_timeout: 500
+    - protocol: MPING
+      receive_on_all_interfaces: true
+      mcast_port: 7500
+    - protocol: MERGE3
+    - protocol: FD_SOCK
+    - protocol: FD
+    - protocol: VERIFY_SUSPECT
+    - protocol: pbcast.NAKACK2
+    - protocol: UNICAST3
+    - protocol: pbcast.STABLE
+    - protocol: pbcast.GMS
+    - protocol: MFC
+    - protocol: FRAG2
+    - protocol: pbcast.STATE_TRANSFER
+
+server:
+  applicationConnectors:
+  - type: http 
+    port: 8090
+  adminConnectors:
+  - type: http
+    port: 8091
+
+logging:
+  level: DEBUG
