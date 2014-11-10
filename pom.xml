@@ -104,11 +104,8 @@
         <artifactId>maven-java-formatter-plugin</artifactId>
         <version>0.4</version>
         <configuration>
-          <configFile>file://${project.basedir}/eclipse-formatter-config.xml</configFile>
+          <configFile>${project.basedir}/eclipse-formatter-config.xml</configFile>
           <overrideConfigCompilerVersion>true</overrideConfigCompilerVersion>
-          <compilerCompliance>1.8</compilerCompliance>
-          <compilerSource>1.8</compilerSource>
-          <compilerTargetPlatform>1.8</compilerTargetPlatform>
         </configuration>
         <dependencies>
           <dependency>
