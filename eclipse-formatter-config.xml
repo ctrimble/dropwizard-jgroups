@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-    Copyright (C) 2014 meltmedia (christian.trimble@meltmedia.com)
+    Copyright (C) 2014 Christian Trimble (xiantrimble@gmail.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 
 -->
 <profiles version="12">
-<profile kind="CodeFormatterProfile" name="Jackson Crypto" version="12">
+<profile kind="CodeFormatterProfile" name="Dropwizard JGroups" version="12">
 <setting id="org.eclipse.jdt.core.formatter.insert_space_after_ellipsis" value="insert"/>
 <setting id="org.eclipse.jdt.core.formatter.insert_space_after_comma_in_enum_declarations" value="insert"/>
 <setting id="org.eclipse.jdt.core.formatter.insert_new_line_in_empty_annotation_declaration" value="insert"/>
