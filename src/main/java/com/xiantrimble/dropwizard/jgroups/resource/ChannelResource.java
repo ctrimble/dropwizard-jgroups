@@ -20,11 +20,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import org.jgroups.JChannel;
-import org.jgroups.View;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.jaxrs.annotation.JacksonFeatures;
+import com.xiantrimble.dropwizard.jgroups.mixin.Views;
 
 @Path("/channel")
 public class ChannelResource {
@@ -38,7 +38,7 @@ public class ChannelResource {
   @GET
   @Produces("application/json")
   @JacksonFeatures(serializationEnable = { SerializationFeature.INDENT_OUTPUT })
-  @JsonView(JGroupsResource.class)
+  @JsonView(Views.Resource.class)
   public JChannel getState() {
     return channel;
   }
