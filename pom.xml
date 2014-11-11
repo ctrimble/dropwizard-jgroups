@@ -41,6 +41,16 @@
     <program.file>${project.artifactId}</program.file>
     <main.class>com.xiantrimble.dropwizard.jgroups.JGroupsApplication</main.class>
   </properties>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
   <dependencies>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
