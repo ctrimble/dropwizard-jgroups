@@ -24,7 +24,7 @@ in the first terminal and
 ./target/dropwizard-jgroups server conf/local-node2.yml
 ```
   
-then you can see the membership by curling the `/channel` endpoint
+in the second terminal.  You can then get channel information from the `/channel` endpoint
 
 ```
 curl http://localhost:8080/channel
