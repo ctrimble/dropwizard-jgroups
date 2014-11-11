@@ -13,26 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiantrimble.dropwizard.jgroups;
+package com.xiantrimble.dropwizard.jgroups.mixin;
 
-import io.dropwizard.Application;
-import io.dropwizard.setup.Bootstrap;
-import io.dropwizard.setup.Environment;
+import java.util.List;
 
-/**
- *
- */
-public class JGroupsApplication extends Application<JGroupsConfiguration> {
-  public static void main(String[] args) throws Exception {
-    new JGroupsApplication().run(args);
-  }
+import org.jgroups.Address;
 
-  @Override
-  public void initialize(Bootstrap<JGroupsConfiguration> bootstrap) {
-    bootstrap.addBundle(new JGroupsBundle());
-  }
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
-  @Override
-  public void run(JGroupsConfiguration config, Environment env) throws Exception {
-  }
+public interface ViewMixin {
+  @JsonProperty
+  @JsonView(Views.Resource.class)
+  public String getViewId();
+
+  @JsonProperty
+  @JsonSerialize(contentUsing = ToStringSerializer.class)
+  @JsonView(Views.Resource.class)
+  public List<Address> getMembers();
 }

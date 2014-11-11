@@ -13,36 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiantrimble.dropwizard.jgroups;
+package com.xiantrimble.dropwizard.jgroups.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import io.dropwizard.Application;
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
+import com.xiantrimble.dropwizard.jgroups.*;
 
 /**
- * Unit test for simple App.
+ *
  */
-public class AppTest extends TestCase {
-  /**
-   * Create the test case
-   *
-   * @param testName name of the test case
-   */
-  public AppTest(String testName) {
-    super(testName);
+public class JGroupsApplication extends Application<JGroupsConfiguration> {
+  public static void main(String[] args) throws Exception {
+    new JGroupsApplication().run(args);
   }
 
-  /**
-   * @return the suite of tests being tested
-   */
-  public static Test suite() {
-    return new TestSuite(AppTest.class);
+  @Override
+  public void initialize(Bootstrap<JGroupsConfiguration> bootstrap) {
+    bootstrap.addBundle(new JGroupsBundle());
   }
 
-  /**
-   * Rigourous Test :-)
-   */
-  public void testApp() {
-    assertTrue(true);
+  @Override
+  public void run(JGroupsConfiguration config, Environment env) throws Exception {
   }
 }
