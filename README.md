@@ -29,3 +29,18 @@ then you can see the membership by curling the `/channel` endpoint
 ```
 curl http://localhost:8080/channel
 ```
+
+which will return cluster information like
+
+```
+{
+  "state" : "CONNECTED",
+  "name" : "ctrimble-2-35553",
+  "view" : {
+    "members" : [ "ctrimble-2-35553", "ctrimble-2-57467" ],
+    "viewId" : { }
+  },
+  "clusterName" : "test",
+  "discardOwnMessages" : false
+}
+```
