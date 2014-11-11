@@ -3,7 +3,7 @@
 This project gives a basic example of clustering Dropwizard applications using JGroups.  The first iteration
 simply builds a cluster and provides details about membership, with no real functionality.
 
-# Building and Running the Example
+## Building and Running the Example
 
 This project builds with Java8 and Maven 3.  Simply clone the repo and run
 
