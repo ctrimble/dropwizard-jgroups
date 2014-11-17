@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiantrimble.dropwizard.jgroups;
+package com.xiantrimble.dropwizard.jgroups.example;
 
 import io.dropwizard.Configuration;
 
@@ -32,29 +32,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xiantrimble.dropwizard.jgroups.config.JchannelConfiguration;
 
 public class JGroupsConfiguration extends Configuration {
-  @JsonProperty
-  protected String clusterName;
 
   @JsonProperty
   @NotNull
   protected JchannelConfiguration jchannel;
 
-  public JChannel createChannel() throws Exception {
-
-    JChannel ch = new JChannel(false);
-    ProtocolStack stack = new ProtocolStack();
-    ch.setProtocolStack(stack);
-
-    List<ProtocolConfiguration> configs = jchannel.getStack().stream().map(protocol -> {
-      // eclipse is hating on Collectors.toMap here.
-        Map<String, String> configMap = new LinkedHashMap<String, String>();
-        for (Map.Entry<String, Object> entry : protocol.getAdditionalProperties().entrySet()) {
-          configMap.put(entry.getKey(), String.valueOf(entry.getValue()));
-        }
-        return new ProtocolConfiguration(protocol.getProtocol(), configMap);
-      }).collect(Collectors.toList());
-
-    stack.setup(configs);
-    return ch;
+  public JchannelConfiguration getJChannel() {
+    return jchannel;
   }
 }

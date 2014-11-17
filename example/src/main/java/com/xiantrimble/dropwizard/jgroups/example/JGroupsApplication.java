@@ -20,9 +20,6 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import com.xiantrimble.dropwizard.jgroups.*;
 
-/**
- *
- */
 public class JGroupsApplication extends Application<JGroupsConfiguration> {
   public static void main(String[] args) throws Exception {
     new JGroupsApplication().run(args);
@@ -30,7 +27,9 @@ public class JGroupsApplication extends Application<JGroupsConfiguration> {
 
   @Override
   public void initialize(Bootstrap<JGroupsConfiguration> bootstrap) {
-    bootstrap.addBundle(new JGroupsBundle());
+    bootstrap.addBundle(
+        JGroupsBundle.<JGroupsConfiguration>builder()
+        .withConfig(c->c.getJChannel()).build());
   }
 
   @Override

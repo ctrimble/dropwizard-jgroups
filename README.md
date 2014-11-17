@@ -32,6 +32,26 @@ You will also need to include the project in your dependencies.
 </dependency>
 ```
 
+Then add the JchannelConfiguration to your applications configuration.
+
+```
+import io.dropwizard.Configuration;
+import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.xiantrimble.dropwizard.jgroups.config.JchannelConfiguration;
+
+public class MyConfiguration extends Configuration {
+
+  @JsonProperty
+  @NotNull
+  protected JchannelConfiguration jchannel;
+
+  public JchannelConfiguration getJChannel() {
+    return jchannel;
+  }
+}
+```
+
 and finally, you will need to add the bundle to your application's initialize method.
 
 ```
@@ -41,7 +61,10 @@ import com.xiantrimble.dropwizard.jgroups.JGroupsBundle;
 
 @Override
 public void initialize(Bootstrap<JGroupsConfiguration> bootstrap) {
-  bootstrap.addBundle(new JGroupsBundle());
+  bootstrap.addBundle(
+    JGroupsBundle.<MyConfiguration>builder()
+    .withConfig(c->c.getJChannel())
+    .build());
 }
 ```
 
