@@ -67,7 +67,7 @@ public void initialize(Bootstrap<MyConfiguration> bootstrap) {
 }
 ```
 
-### Config
+### Configuration
 
 Add the channel configuration to the dropwizard configuration file.  The `protocol` field is equivelent to element names in the standard JGroups config file.  All other fields are treated as properties for the protocol.
 
