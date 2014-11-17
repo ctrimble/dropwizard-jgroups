@@ -27,7 +27,7 @@ import org.jgroups.conf.ProtocolConfiguration;
 import org.jgroups.stack.ProtocolStack;
 
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.xiantrimble.dropwizard.jgroups.config.JchannelConfiguration;
+import com.xiantrimble.dropwizard.jgroups.config.JChannelConfiguration;
 import com.xiantrimble.dropwizard.jgroups.mixin.ChannelMixin;
 import com.xiantrimble.dropwizard.jgroups.mixin.ViewMixin;
 import com.xiantrimble.dropwizard.jgroups.resource.ChannelResource;
@@ -40,9 +40,9 @@ import io.dropwizard.setup.Environment;
 public class JGroupsBundle<C extends Configuration> implements ConfiguredBundle<C> {
   
   public static class Builder<C extends Configuration> {
-    Function<C, JchannelConfiguration> configAccessor;
+    Function<C, JChannelConfiguration> configAccessor;
     
-    public Builder<C> withConfig( Function<C, JchannelConfiguration> configAccessor) {
+    public Builder<C> withConfig( Function<C, JChannelConfiguration> configAccessor) {
       this.configAccessor = configAccessor;
       return this;
     }
@@ -56,9 +56,9 @@ public class JGroupsBundle<C extends Configuration> implements ConfiguredBundle<
     return new Builder<C>();
   }
 
-  private Function<C, JchannelConfiguration> configAccessor;
+  private Function<C, JChannelConfiguration> configAccessor;
 
-  public JGroupsBundle(Function<C, JchannelConfiguration> configAccessor) {
+  public JGroupsBundle(Function<C, JChannelConfiguration> configAccessor) {
     this.configAccessor = configAccessor;
   }
 
@@ -78,7 +78,7 @@ public class JGroupsBundle<C extends Configuration> implements ConfiguredBundle<
     env.jersey().register(new ChannelResource(channel));
   }
   
-  public static JChannel createChannel(JchannelConfiguration config) throws Exception {
+  public static JChannel createChannel(JChannelConfiguration config) throws Exception {
     JChannel ch = new JChannel(false);
     ProtocolStack stack = new ProtocolStack();
     ch.setProtocolStack(stack);
@@ -93,6 +93,10 @@ public class JGroupsBundle<C extends Configuration> implements ConfiguredBundle<
       }).collect(Collectors.toList());
 
     stack.setup(configs);
+    
+    if( config.getName() != null ) {
+      ch.setName(config.getName());
+    }
     return ch;
   }
 

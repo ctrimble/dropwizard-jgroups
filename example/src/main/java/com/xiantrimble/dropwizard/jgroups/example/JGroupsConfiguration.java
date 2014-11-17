@@ -17,27 +17,18 @@ package com.xiantrimble.dropwizard.jgroups.example;
 
 import io.dropwizard.Configuration;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import javax.validation.constraints.NotNull;
 
-import org.jgroups.JChannel;
-import org.jgroups.conf.ProtocolConfiguration;
-import org.jgroups.stack.ProtocolStack;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.xiantrimble.dropwizard.jgroups.config.JchannelConfiguration;
+import com.xiantrimble.dropwizard.jgroups.config.JChannelConfiguration;
 
 public class JGroupsConfiguration extends Configuration {
 
   @JsonProperty
   @NotNull
-  protected JchannelConfiguration jchannel;
+  protected JChannelConfiguration jchannel;
 
-  public JchannelConfiguration getJChannel() {
+  public JChannelConfiguration getJChannel() {
     return jchannel;
   }
 }
