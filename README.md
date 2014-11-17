@@ -60,7 +60,7 @@ import com.xiantrimble.dropwizard.jgroups.JGroupsBundle;
 ...
 
 @Override
-public void initialize(Bootstrap<JGroupsConfiguration> bootstrap) {
+public void initialize(Bootstrap<MyConfiguration> bootstrap) {
   bootstrap.addBundle(
     JGroupsBundle.<MyConfiguration>builder()
     .withConfig(c->c.getChannel())
