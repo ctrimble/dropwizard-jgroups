@@ -47,7 +47,7 @@ public class MyConfiguration extends Configuration {
   protected ChannelConfiguration channel;
 
   public ChannelConfiguration getChannel() {
-    return jchannel;
+    return channel;
   }
 }
 ```
