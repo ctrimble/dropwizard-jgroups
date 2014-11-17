@@ -65,6 +65,12 @@
     </dependency>
   </dependencies>
   <build>
+    <resources>
+      <resource>
+        <targetPath>com/xiantrimble/dropwizard/jgroups</targetPath>
+        <directory>${basedir}/src/main/jsonschema</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
