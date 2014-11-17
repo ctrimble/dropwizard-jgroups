@@ -20,15 +20,15 @@ import io.dropwizard.Configuration;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.xiantrimble.dropwizard.jgroups.config.JChannelConfiguration;
+import com.xiantrimble.dropwizard.jgroups.config.ChannelConfiguration;
 
 public class JGroupsConfiguration extends Configuration {
 
   @JsonProperty
   @NotNull
-  protected JChannelConfiguration jchannel;
+  protected ChannelConfiguration channel;
 
-  public JChannelConfiguration getJChannel() {
-    return jchannel;
+  public ChannelConfiguration getChannel() {
+    return channel;
   }
 }

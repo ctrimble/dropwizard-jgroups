@@ -1,4 +1,4 @@
-jchannel:
+channel:
   stack:
     - protocol: TCP
       bind_port: 7801

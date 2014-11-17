@@ -29,7 +29,7 @@ public class JGroupsApplication extends Application<JGroupsConfiguration> {
   public void initialize(Bootstrap<JGroupsConfiguration> bootstrap) {
     bootstrap.addBundle(
         JGroupsBundle.<JGroupsConfiguration>builder()
-        .withConfig(c->c.getJChannel()).build());
+        .withConfig(c->c.getChannel()).build());
   }
 
   @Override

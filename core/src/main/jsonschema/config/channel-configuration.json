@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Configuration for a JGroups channel.",
   "type": "object",
-  "javaType": "com.xiantrimble.dropwizard.jgroups.config.JChannelConfiguration",
+  "javaType": "com.xiantrimble.dropwizard.jgroups.config.ChannelConfiguration",
   "required": ["stack"],
   "properties": {
     "name": {
