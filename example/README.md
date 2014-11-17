@@ -4,7 +4,7 @@ This is a very simple example of using this package to create a cluster.
 
 ## Before You Begin
 
-- Make sure you have build the project using the instructions in the [parent project](../).  
+- Make sure you have build the project using the instructions in the parent project.  
 - These instructions assume that the example project is your current working directory.
 - This example requires ports 7801, 8080, 8081, 8090, and 8091.  You can change these if needed in the configuration files.
 
