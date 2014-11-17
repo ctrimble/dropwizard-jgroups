@@ -1,7 +1,6 @@
 # Dropwizard JGroups Integration
 
-This project gives a basic example of clustering Dropwizard applications using JGroups.  The first iteration
-simply builds a cluster and provides details about membership, with no real functionality.
+This project provides a Dropwizard Bundle that integrates JGroups configuration into the standard config file.  An [example](./example) project is also provided to demonstrate using the bundle.
 
 [![Build Status](https://travis-ci.org/ctrimble/dropwizard-jgroups.svg)](https://travis-ci.org/ctrimble/dropwizard-jgroups)
 
@@ -76,7 +75,7 @@ This project builds with Java8 and Maven 3.  Simply clone the repo and run
 mvn clean install
 ```
 
-from the root directory.  See the [example module](./example) to see the bundle in action.
+from the root directory.
 
 ## Contributing
 
