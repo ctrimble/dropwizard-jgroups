@@ -6,6 +6,8 @@ This project provides a Dropwizard Bundle that integrates JGroups configuration 
 
 ## Usage
 
+### Maven
+
 To use SNAPSHOTs of this project, you will need to include the sonatype repository in your POM.
 
 ```
@@ -31,15 +33,14 @@ You will also need to include the project in your dependencies.
 </dependency>
 ```
 
-Then add the ChannelConfiguration to your applications configuration.
+### Java
+
+Add a ChannelConfiguration to your applications configuration.
 
 ```
-import io.dropwizard.Configuration;
-import javax.validation.constraints.NotNull;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xiantrimble.dropwizard.jgroups.config.ChannelConfiguration;
 
-public class MyConfiguration extends Configuration {
+...
 
   @JsonProperty
   @NotNull
@@ -48,10 +49,9 @@ public class MyConfiguration extends Configuration {
   public ChannelConfiguration getChannel() {
     return channel;
   }
-}
 ```
 
-and finally, you will need to add the bundle to your application's initialize method.
+and wire up the bundle in your application's initialize method.
 
 ```
 import com.xiantrimble.dropwizard.jgroups.JGroupsBundle;
@@ -65,6 +65,32 @@ public void initialize(Bootstrap<MyConfiguration> bootstrap) {
     .withConfig(c->c.getChannel())
     .build());
 }
+```
+
+### Config
+
+Add the channel configuration to the dropwizard configuration file.  The `protocol` field is equivelent to element names in the standard JGroups config file.  All other fields are treated as properties for the protocol.
+
+```
+channel:
+  stack:
+    - protocol: TCP
+      bind_port: 7801
+      sock_conn_timeout: 500
+    - protocol: MPING
+      receive_on_all_interfaces: true
+      mcast_port: 7500
+    - protocol: MERGE3
+    - protocol: FD_SOCK
+    - protocol: FD
+    - protocol: VERIFY_SUSPECT
+    - protocol: pbcast.NAKACK2
+    - protocol: UNICAST3
+    - protocol: pbcast.STABLE
+    - protocol: pbcast.GMS
+    - protocol: MFC
+    - protocol: FRAG2
+    - protocol: pbcast.STATE_TRANSFER
 ```
 
 ## Building
